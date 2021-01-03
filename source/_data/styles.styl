@@ -1,0 +1,26 @@
+.highlight
+  td.code
+    position relative
+    color $rrr
+
+mark
+  background-color transparent
+  color inherit
+  &:after
+    content ''
+    height 1.5em
+    display inline-block
+    width calc(100% - 30px)
+    /* transform translateX(-10px); */
+    left 30px
+    position fixed
+    background-color rgba(0,0,0,.1)
+    +desktop-large() {
+      height 1.6em
+    }
+    @media (prefers-color-scheme: dark)
+      background-color rgba(255,255,255,.1)
+
+
+.post-copyright
+  border-left: 3px solid #0dad38;

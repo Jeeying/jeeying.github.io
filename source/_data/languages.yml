@@ -1,0 +1,8 @@
+zh-TW:
+  reward:
+    donate: 掃描QRcode，Donate一下
+    wechatpay: 微信支付
+    alipay: 支付寶
+    paypal: PayPal
+    jkos: 街口支付
+    bitcoin: 比特幣
