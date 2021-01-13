@@ -1,12 +1,12 @@
 ---
 title: 測試網頁
 date: 2021-01-03 15:54:41
-tags:
-- 標籤1
-- 標籤1
-categories:
-- 分類1
-description: 描述內容
+# tags:
+# - 標籤1
+# - 標籤1
+# categories:
+# - 分類1
+# description: 描述內容
 ---
 
 {% codeblock lang:js mark:2-3 {4} %}
@@ -142,3 +142,13 @@ fs你好gsdfg`sd你好fs`fasfa你好sdf你好
 
 
 fsdf
+
+---
+
+參考文章
+* [hexo 輔助函數（Helpers）](https://hexo.io/zh-tw/docs/helpers.html)
+* [How to implement a tabbed codeblock tag for Hexo](https://stackoverflow.com/questions/35140300/how-to-implement-a-tabbed-codeblock-tag-for-hexo)
+* [Hexo 文章編輯技巧-流程圖、按扭、分頁、小圖示](https://ppundsh.github.io/posts/cdf3/)
+* [Hexo 加入 Disqus 留言版 (包含留言數)](https://titangene.github.io/article/hexo-disqus.html)
+* [試著學 Hexo - NexT 主題篇 - 可以安裝的套件](https://hsiangfeng.github.io/hexo/20201003/38607376/)
+
