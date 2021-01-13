@@ -20,25 +20,32 @@
     var CONFIG = {"hostname":"jeeying.github.io","root":"/","scheme":"Gemini","version":"8.0.0-rc.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#666","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="記錄學習內容">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jeeying&#39;s blog">
-<meta property="og:url" content="http://jeeying.github.io/index.html">
+  <meta name="description" content="你所不知道的JS 導讀，型別與文法 - chapter 4">
+<meta property="og:type" content="article">
+<meta property="og:title" content="YDKJS - 2_型別">
+<meta property="og:url" content="http://jeeying.github.io/Javascript/javascript/YDKJS-2/index.html">
 <meta property="og:site_name" content="Jeeying&#39;s blog">
-<meta property="og:description" content="記錄學習內容">
+<meta property="og:description" content="你所不知道的JS 導讀，型別與文法 - chapter 4">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="http://jeeying.github.io/images/javascript/YDKJS-2/1.png">
+<meta property="og:image" content="http://jeeying.github.io/images/javascript/YDKJS-2/2.png">
+<meta property="article:published_time" content="2021-01-12T13:40:51.000Z">
+<meta property="article:modified_time" content="2021-01-13T15:48:53.220Z">
 <meta property="article:author" content="Jeeying">
+<meta property="article:tag" content="Javascript">
+<meta property="article:tag" content="YDKJS">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://jeeying.github.io/images/javascript/YDKJS-2/1.png">
 
-<link rel="canonical" href="http://jeeying.github.io/">
+<link rel="canonical" href="http://jeeying.github.io/Javascript/javascript/YDKJS-2/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-TW'
   };
 </script>
@@ -58,7 +65,7 @@
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-MXSGWZR');</script>
   <!-- End Google Tag Manager -->
-  <title>Jeeying's blog</title>
+  <title>YDKJS - 2_型別 | Jeeying's blog</title>
   
 
 
@@ -188,104 +195,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://jeeying.github.io/Javascript/javascript/YDKJS-3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeeying">
-      <meta itemprop="description" content="記錄學習內容">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeeying's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Javascript/javascript/YDKJS-3/" class="post-title-link" itemprop="url">YDKJS - 3_值</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2021-01-14 11:20:01" itemprop="dateCreated datePublished" datetime="2021-01-14T11:20:01+00:00">2021-01-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2021-01-13 15:48:53" itemprop="dateModified" datetime="2021-01-13T15:48:53+00:00">2021-01-13</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Javascript/" itemprop="url" rel="index"><span itemprop="name">Javascript</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/Javascript/javascript/YDKJS-3/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Javascript/javascript/YDKJS-3/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
 
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>你所不知道的JS 導讀，型別與文法 - chapter 5</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/Javascript/javascript/YDKJS-3/">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
@@ -301,10 +214,9 @@
       <meta itemprop="name" content="Jeeying's blog">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Javascript/javascript/YDKJS-2/" class="post-title-link" itemprop="url">YDKJS - 2_型別</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          YDKJS - 2_型別
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -347,6 +259,7 @@
   </span>
   
   
+            <div class="post-description">你所不知道的JS 導讀，型別與文法 - chapter 4</div>
 
         </div>
       </header>
@@ -357,220 +270,143 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>你所不知道的JS 導讀，型別與文法 - chapter 4</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/Javascript/javascript/YDKJS-2/">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
+        <h1 id="型別"><a class="header-anchor" href="#型別"></a>型別</h1>
+<p><b class="color-success">演算法中所操作的每個值（values）都有一個關連的型別。</b></p>
+<h1 id="內建型別"><a class="header-anchor" href="#內建型別"></a>內建型別</h1>
+<p>定義了七個內建型別（built-in types）：</p>
+<ul>
+<li>null</li>
+<li>undefined</li>
+<li>boolean</li>
+<li>number</li>
+<li>string</li>
+<li>object</li>
+<li>symbol</li>
+</ul>
+<p>除了object外，所有的這些型別都叫做「primitive」基本型別值，簡稱「基別值」</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">typeof</span> <span class="hljs-literal">undefined</span> <span class="hljs-comment">// "undefined"</span><br><span class="hljs-keyword">typeof</span> <span class="hljs-literal">true</span> <span class="hljs-comment">// "boolean"</span><br><span class="hljs-keyword">typeof</span> <span class="hljs-number">42</span> <span class="hljs-comment">// "number"</span><br><span class="hljs-keyword">typeof</span> <span class="hljs-string">"42"</span> <span class="hljs-comment">// "string"</span><br><span class="hljs-keyword">typeof</span> &#123; <span class="hljs-attr">life</span>: <span class="hljs-number">42</span> &#125; <span class="hljs-comment">// "object"</span><br><span class="hljs-keyword">typeof</span> <span class="hljs-built_in">Symbol</span>() <span class="hljs-comment">// "symbol"</span><br></code></pre></td></tr></table></figure>
+<br>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">typeof</span> <span class="hljs-literal">null</span> <span class="hljs-comment">// "object"</span><br></code></pre></td></tr></table></figure>
+<p><b class="color-info">檢測一個值是否為null</b></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> <span class="hljs-keyword">var</span> = <span class="hljs-literal">null</span><br>!val &amp;&amp; <span class="hljs-keyword">typeof</span> val === <span class="hljs-string">'object'</span> <span class="hljs-comment">// true</span><br></code></pre></td></tr></table></figure>
+<br>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">typeof</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123; &#125; <span class="hljs-comment">// "function"</span><br></code></pre></td></tr></table></figure>
+<p><b>function是object裡面的一個子型別（subtype）</b><br>
+更確切的說，一個函式被稱作是一個「可呼叫的物件（callable object）」，一個擁有[[call]]內部特性，讓他能夠被調用（invoke）的物件<br>
+function擁有特性（properties）<br>
+比如函式物件具有一個length特性，length被設為他所宣告的形式參數之數目</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">a</span>(<span class="hljs-params">a, b, c</span>) </span>&#123;<br>  <span class="hljs-keyword">this</span>.d = <span class="hljs-number">5</span><br> <span class="hljs-comment">//...</span><br>&#125;<br>a.length <span class="hljs-comment">// 3</span><br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">b</span>(<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-keyword">this</span>.d = <span class="hljs-number">5</span><br> <span class="hljs-comment">//...</span><br>&#125;<br>b.length <span class="hljs-comment">// 0</span><br></code></pre></td></tr></table></figure>
+<br>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">typeof</span> [ <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span> ] <span class="hljs-comment">// "object"</span><br></code></pre></td></tr></table></figure>
+<p>array只是物件，也是object的一個子型別，具有「能以數值化的方式來索引」及維護了一個會自動更新的 .length特性</p>
+<h1 id="作為型別的值"><a class="header-anchor" href="#作為型別的值"></a>作為型別的值</h1>
+<p><b class="color-success">在JavaScript中，變數（variables）沒有型別，值（values）才有型別</b><br>
+typeof是在詢問在該變數中的那個值是什麼型別</p>
+<h2 id="未定義（undefined）vs-未宣告（undeclared）"><a class="header-anchor" href="#未定義（undefined）vs-未宣告（undeclared）"></a>未定義（undefined）vs. 未宣告（undeclared）</h2>
+<p>目前沒有值的變數實際上擁有undefined這個值<br>
+一個undefined變數<br>
+<span class="tab">是已經在可取用的範疇（assessible scope）中被宣告了變數，只不過當下沒有其他的值<span></p>
+<p>一個undeclared變數<br>
+<span class="tab">尚未在可取用的範疇中，正式被宣告的變數<span></p>
+<p><img data-src="/images/javascript/YDKJS-2/1.png" alt="undefined vs undeclared" title="undefined vs undeclared"></p>
+<p><b class="sub-title">一級函式（First-class Function）</b><br>
+<span class="tab">當函式在那個語言中可以被視為跟其他的變數一樣時，我們稱那樣的程式語言擁有一級函式。</span></p>
+<p><b class="sub-title">為何typoef Undeclared 是 &quot;undefined&quot;</b><br>
+用來檢查變數是否存在，如若是尚未宣告，會有ReferenceError擲出</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 會丟出一個錯誤</span><br><span class="hljs-keyword">if</span> (val) &#123;<br>  <span class="hljs-built_in">console</span>.log(val)<br>&#125;<br><br><span class="hljs-comment">// 檢查存在與否的一個安全檢查</span><br><span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> val !== <span class="hljs-string">"undefined"</span>) &#123;<br>  <span class="hljs-built_in">console</span>.log(val)<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><img data-src="/images/javascript/YDKJS-2/2.png" alt="typeof undeclared" title="typeof undeclared"></p>
+<p><b class="sub-title">host 物件</b><br>
+瀏覽器中的全域內建變數，比如HTMLElement或Node.js</p>
+<p>如果是對全域變數進行檢查，可以改使用window.__，因為所有的全域變數都是全域物件window，本身就是物件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.val) &#123;<br>  <span class="hljs-comment">// ...</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<p>或是可以使用「依存性注入（dependency injection）」</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params">featureFoo</span>) </span>&#123;<br>  <span class="hljs-keyword">const</span> func = featureFoo || <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123; &#125;<br>  func() <span class="hljs-comment">// ...</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
     </div>
 
     
     
     
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    掃描QRcode，Donate一下
+  </button>
+  <div id="qr" style="display: none;">
+      <div style="display: inline-block;">
+        <img src="/images/qrcode/linePay.png" alt="Jeeying Line Pay">
+        <p>Line Pay</p>
+      </div>
       
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://jeeying.github.io/Javascript/javascript/YDKJS-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeeying">
-      <meta itemprop="description" content="記錄學習內容">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeeying's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/Javascript/javascript/YDKJS-1/" class="post-title-link" itemprop="url">YDKJS - 1_概述</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2021-01-09 15:24:41" itemprop="dateCreated datePublished" datetime="2021-01-09T15:24:41+00:00">2021-01-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2021-01-13 15:48:53" itemprop="dateModified" datetime="2021-01-13T15:48:53+00:00">2021-01-13</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分類於</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Javascript/" itemprop="url" rel="index"><span itemprop="name">Javascript</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/Javascript/javascript/YDKJS-1/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Javascript/javascript/YDKJS-1/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      <div style="display: inline-block;">
+        <img src="/images/qrcode/paypal.png" alt="Jeeying PayPal">
+        <p>PayPal</p>
+      </div>
       
-          <p>你所不知道的JS 導讀，型別與文法 - chapter 1, 2, 3</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/Javascript/javascript/YDKJS-1/">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
+      <div style="display: inline-block;">
+        <img src="/images/qrcode/jkos.png" alt="Jeeying 街口支付">
+        <p>街口支付</p>
+      </div>
+
+  </div>
+</div>
+
         
-      
-    </div>
 
-    
-    
-    
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>作者： </strong>Jeeying
+  </li>
+  <li class="post-copyright-link">
+    <strong>文章連結：</strong>
+    <a href="http://jeeying.github.io/Javascript/javascript/YDKJS-2/" title="YDKJS - 2_型別">http://jeeying.github.io/Javascript/javascript/YDKJS-2/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版權聲明： </strong>本網誌所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 許可協議。轉載請註明出處！
+  </li>
+</ul>
+</div>
+
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/Javascript/" rel="tag"><i class="fa fa-tag"></i> Javascript</a>
+              <a href="/tags/YDKJS/" rel="tag"><i class="fa fa-tag"></i> YDKJS</a>
+          </div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://jeeying.github.io/uncategorized/Test/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jeeying">
-      <meta itemprop="description" content="記錄學習內容">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jeeying's blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/uncategorized/Test/" class="post-title-link" itemprop="url">測試網頁</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2021-01-03 15:54:41" itemprop="dateCreated datePublished" datetime="2021-01-03T15:54:41+00:00">2021-01-03</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2021-01-13 15:48:53" itemprop="dateModified" datetime="2021-01-13T15:48:53+00:00">2021-01-13</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/uncategorized/Test/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="uncategorized/Test/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight js"><figcaption><span>&#123;4&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">aa</span>(<span class="hljs-params"></span>)</span>&#123;<br><mark>  <span class="hljs-keyword">let</span> a = <span class="hljs-number">2</span>;</mark><br><mark>  <span class="hljs-keyword">var</span> b = <span class="hljs-number">3</span>;</mark><br>  <span class="hljs-keyword">return</span> a * b;<br>&#125;<br></code></pre></td></tr></table></figure>
-<figure class="highlight diff"><figcaption><span>hihi</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs diff"><span class="hljs-deletion">- gsdfsdsdgsdg</span><br>vasdfa<br><span class="hljs-addition">+ sdfsfdfsgsdgf</span><br><span class="hljs-deletion">- gsdfsd</span><br><span class="hljs-addition">+ sdfsf</span><br></code></pre></td></tr></table></figure>
-<figure class="highlight js"><figcaption><span>&#123;2&#125;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">name</span>(<span class="hljs-params">params</span>) </span>&#123;<br>  <span class="hljs-keyword">let</span> a = <span class="hljs-number">2</span>;<br>  + <span class="hljs-keyword">const</span> b = <span class="hljs-number">3</span>;<br>  <span class="hljs-keyword">return</span> a*b;<br>&#125;<br></code></pre></td></tr></table></figure>
-<figure class="highlight js"><figcaption><span>highlight</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">name</span>(<span class="hljs-params">params</span>) </span>&#123;<br>  <span class="hljs-keyword">let</span> a = <span class="hljs-number">2</span>;<br>  + <span class="hljs-keyword">const</span> b = <span class="hljs-number">3</span>;<br>  <span class="hljs-keyword">return</span> a*b;<br>&#125;<br></code></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/uncategorized/Test/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/Javascript/javascript/YDKJS-1/" rel="prev" title="YDKJS - 1_概述">
+      <i class="fa fa-chevron-left"></i> YDKJS - 1_概述
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/Javascript/javascript/YDKJS-3/" rel="next" title="YDKJS - 3_值">
+      YDKJS - 3_值 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
       </footer>
+    
   </article>
   
   
-  
-
-
   
 
 
 
           </div>
           
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -617,6 +453,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#型別"><span class="nav-number">1.</span> <span class="nav-text">型別</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#內建型別"><span class="nav-number">2.</span> <span class="nav-text">內建型別</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#作為型別的值"><span class="nav-number">3.</span> <span class="nav-text">作為型別的值</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#未定義（undefined）vs-未宣告（undeclared）"><span class="nav-number">3.1.</span> <span class="nav-text">未定義（undefined）vs. 未宣告（undeclared）</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -759,6 +596,26 @@
   }
   // defer loading until the whole page loading is completed
   window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://jeeying.github.io/Javascript/javascript/YDKJS-2/";
+    this.page.identifier = "Javascript/javascript/YDKJS-2/";
+    this.page.title = "YDKJS - 2_型別";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://jeeyings-blog.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
 </script>
 
 </body>

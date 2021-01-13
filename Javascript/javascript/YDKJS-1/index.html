@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto Sans TC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"jeeying.github.io","root":"/","scheme":"Gemini","version":"8.0.0-rc.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#666","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="你所不知道的JS 導讀，型別與文法 - chapter 1, 2, 3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="YDKJS - 1_概述">
+<meta property="og:url" content="http://jeeying.github.io/Javascript/javascript/YDKJS-1/index.html">
+<meta property="og:site_name" content="Jeeying&#39;s blog">
+<meta property="og:description" content="你所不知道的JS 導讀，型別與文法 - chapter 1, 2, 3">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="http://jeeying.github.io/images/javascript/YDKJS-1/1.png">
+<meta property="og:image" content="http://jeeying.github.io/images/javascript/YDKJS-1/2.png">
+<meta property="article:published_time" content="2021-01-09T15:24:41.000Z">
+<meta property="article:modified_time" content="2021-01-13T15:48:53.220Z">
+<meta property="article:author" content="Jeeying">
+<meta property="article:tag" content="Javascript">
+<meta property="article:tag" content="YDKJS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://jeeying.github.io/images/javascript/YDKJS-1/1.png">
+
+<link rel="canonical" href="http://jeeying.github.io/Javascript/javascript/YDKJS-1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169289959-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169289959-1');
+  </script>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MXSGWZR');</script>
+  <!-- End Google Tag Manager -->
+  <title>YDKJS - 1_概述 | Jeeying's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169289959-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-169289959-1');
+  </script>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MXSGWZR');</script>
+  <!-- End Google Tag Manager -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MXSGWZR"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+        <span class="toggle-line toggle-line-first"></span>
+        <span class="toggle-line toggle-line-middle"></span>
+        <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Jeeying's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">note</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://jeeying.github.io/Javascript/javascript/YDKJS-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jeeying">
+      <meta itemprop="description" content="記錄學習內容">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jeeying's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          YDKJS - 1_概述
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2021-01-09 15:24:41" itemprop="dateCreated datePublished" datetime="2021-01-09T15:24:41+00:00">2021-01-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2021-01-13 15:48:53" itemprop="dateModified" datetime="2021-01-13T15:48:53+00:00">2021-01-13</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Javascript/" itemprop="url" rel="index"><span itemprop="name">Javascript</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/Javascript/javascript/YDKJS-1/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="Javascript/javascript/YDKJS-1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <div class="post-description">你所不知道的JS 導讀，型別與文法 - chapter 1, 2, 3</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="概述"><a class="header-anchor" href="#概述"></a>概述</h1>
+<p>通常會說js是直譯式，但實際上js引擎會即時編譯那些程式，然後立即執行經過編譯的程式碼。</p>
+<h2 id="輸出"><a class="header-anchor" href="#輸出"></a>輸出</h2>
+<figure class="highlight js"><figcaption><span>console</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-built_in">console</span>.log(...)<br></code></pre></td></tr></table></figure>
+<h2 id="輸入"><a class="header-anchor" href="#輸入"></a>輸入</h2>
+<p>利用像是alert的談窗，接收使用者輸入的資訊</p>
+<figure class="highlight js"><figcaption><span>prompt</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> a = prompt(<span class="hljs-string">'please tell me your age:'</span>);<br><span class="hljs-built_in">console</span>.log(a);<br></code></pre></td></tr></table></figure>
+<p><img data-src="/images/javascript/YDKJS-1/1.png" alt="prompt request" title="prompt request"></p>
+<p><img data-src="/images/javascript/YDKJS-1/2.png" alt="prompt result" title="prompt result"></p>
+<h2 id="名詞"><a class="header-anchor" href="#名詞"></a>名詞</h2>
+<p>強制轉型 coercion, coerce<br>
+隱含的 implicitly, implicit<br>
+寬鬆地相等 loosely equal<br>
+編譯過程 compilation<br>
+變動 vary<br>
+靜態型別 static typing<br>
+強制型別 type enforcement<br>
+弱型別 weak typing<br>
+動態型別 dynamic typing<br>
+範疇 scope<br>
+<span class="tab">一群變數以及這些變數如何透過名稱來存取的規則所成的一個集合，只有在函式內的程式碼能夠存取該函式範疇內的變數</span><br>
+語彙範疇 lexical scope<br>
+<span class="tab">一個範疇中的程式碼能夠存取該範疇以及其外層任何範疇內的變數</span><br>
+控制反轉 Inversion of Control, IoC<br>
+線性推理能力 linear reason-ability<br>
+<a href="https://developer.mozilla.org/zh-TW/docs/Web/API/Web_Workers_API/Using_web_workers" target="_blank" rel="noopener">Web Workers</a><br>
+單指令流多資料流Single Instruction Multiple Data, SIMD<br>
+基準測試 benchmarking</p>
+<br>
+<h1 id="JavaScript入門"><a class="header-anchor" href="#JavaScript入門"></a>JavaScript入門</h1>
+<h2 id="值與型別"><a class="header-anchor" href="#值與型別"></a>值與型別</h2>
+<p>js擁有<b class="color-success">具有型別的值（typed values）</b>，而非具有型別的變數（typed variables）</p>
+<ul>
+<li>string</li>
+<li>number</li>
+<li>boolean</li>
+<li>null與undefined</li>
+<li>object</li>
+<li>symbol</li>
+</ul>
+<figure class="highlight js"><figcaption><span>js型別</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">typeof</span> a  <span class="hljs-comment">// "undefined"</span><br><br><span class="hljs-keyword">var</span> a<br><span class="hljs-keyword">typeof</span> a <span class="hljs-comment">// "undefined"</span><br><br>a = <span class="hljs-number">42</span><br><span class="hljs-keyword">typeof</span> a <span class="hljs-comment">// "number"</span><br><br>a = <span class="hljs-literal">true</span><br><span class="hljs-keyword">typeof</span> a <span class="hljs-comment">// "boolean"</span><br><br>a = <span class="hljs-literal">null</span><br><span class="hljs-keyword">typeof</span> a <span class="hljs-comment">// "object"</span><br><br>a = <span class="hljs-literal">undefined</span><br><span class="hljs-keyword">typeof</span> a <span class="hljs-comment">// "undefined"</span><br><br>a = &#123; <span class="hljs-attr">b</span>: <span class="hljs-string">'c'</span>&#125;<br><span class="hljs-keyword">typeof</span> a <span class="hljs-comment">// "object"</span><br><br>a = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>]<br><span class="hljs-keyword">typeof</span> a <span class="hljs-comment">// "object"</span><br><br>a = <span class="hljs-built_in">Symbol</span>(<span class="hljs-string">'a'</span>)<br><span class="hljs-keyword">typeof</span> a <span class="hljs-comment">// "symbol"</span><br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">a</span>(<span class="hljs-params"></span>) </span>&#123; &#125;<br><span class="hljs-keyword">typeof</span> a <span class="hljs-comment">// "function"</span><br><br>a = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123; &#125;<br><span class="hljs-keyword">typeof</span> a <span class="hljs-comment">// "function"</span><br></code></pre></td></tr></table></figure>
+<p>typeof並不是在詢問「a的型別是什麼」，而是在詢問「目前在a中的值的型別是什麼」<br>
+在js中，<b class="color-success">只有值擁有型別，變數單純只是那些值的簡單容器</b></p>
+<h3 id="物件"><a class="header-anchor" href="#物件"></a>物件</h3>
+<ul>
+<li>點記號法</li>
+</ul>
+<figure class="highlight js"><figcaption><span>點記號法</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">obj.a<br></code></pre></td></tr></table></figure>
+<ul>
+<li>方括號記號法</li>
+</ul>
+<figure class="highlight js"><figcaption><span>方括號記號法</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">obj[<span class="hljs-string">'a'</span>]<br></code></pre></td></tr></table></figure>
+<h3 id="陣列"><a class="header-anchor" href="#陣列"></a>陣列</h3>
+<p>持有值（任意型別）的一個object，以數值化的索引位置來儲存<br>
+會自動更新length</p>
+<h3 id="函式"><a class="header-anchor" href="#函式"></a>函式</h3>
+<p>函式是object的子型別</p>
+<h3 id="內建方法"><a class="header-anchor" href="#內建方法"></a>內建方法</h3>
+<p>物件包裹器在其原型之上定義了某些方法<br>
+一個string值會被一個String物件所包裹，一個number會被一個Number物件所包裹，一個boolean值則是被一個Boolean物件所包裹</p>
+<h3 id="比較值"><a class="header-anchor" href="#比較值"></a>比較值</h3>
+<p>兩種主要的值比較動作</p>
+<ul>
+<li>相等性（equality）</li>
+<li>不相等性（inequality）</li>
+</ul>
+<h3 id="強制轉型（Coercion）"><a class="header-anchor" href="#強制轉型（Coercion）"></a>強制轉型（Coercion）</h3>
+<p>強制轉型有兩種形式</p>
+<ul>
+<li>明確的</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> a = <span class="hljs-string">'42'</span><br><span class="hljs-keyword">var</span> b = <span class="hljs-built_in">Number</span>(a)<br><br>a <span class="hljs-comment">// "42"</span><br>b <span class="hljs-comment">// 42</span><br></code></pre></td></tr></table></figure>
+<ul>
+<li>隱含的</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> a = <span class="hljs-string">'42'</span><br><span class="hljs-keyword">var</span> b = a * <span class="hljs-number">1</span><br><br>a <span class="hljs-comment">// "42"</span><br>b <span class="hljs-comment">// 42</span><br></code></pre></td></tr></table></figure>
+<h3 id="Truthy-Falsy"><a class="header-anchor" href="#Truthy-Falsy"></a>Truthy &amp; Falsy</h3>
+<p>Falsy</p>
+<ul>
+<li>&quot;&quot;, <code>''</code></li>
+<li>0, -0, NaN</li>
+<li>null, undefined</li>
+<li>false</li>
+</ul>
+<p>不在這個清單上被轉換成boolean時，都是truthy</p>
+<h3 id="相等性"><a class="header-anchor" href="#相等性"></a>相等性</h3>
+<p>== vs ===<br>
+<b class="color-info">== 檢查值的相等性，並允許強制轉型，而===檢查值的相等性，但不允許強制轉型</b></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs js">a = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>]<br>b = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>]<br>c = <span class="hljs-string">"1,2"</span><br>d = <span class="hljs-string">"1, 2"</span><br><br>a == c <span class="hljs-comment">// true</span><br>a == d <span class="hljs-comment">// false</span><br><br>b == c <span class="hljs-comment">// true</span><br>b == d <span class="hljs-comment">// false</span><br><br>a == b <span class="hljs-comment">// false</span><br><br>a.toString() <span class="hljs-comment">// "1,2"</span><br>b.toString() <span class="hljs-comment">// "1,2"</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-string">'a'</span> &gt; <span class="hljs-string">'b'</span> <span class="hljs-comment">// false</span><br><span class="hljs-string">'a'</span> &lt; <span class="hljs-string">'b'</span> <span class="hljs-comment">// true</span><br><br><span class="hljs-number">42</span> &gt; <span class="hljs-string">'foo'</span> <span class="hljs-comment">// false</span><br><span class="hljs-number">42</span> &lt; <span class="hljs-string">'foo'</span> <span class="hljs-comment">// false</span><br><span class="hljs-number">42</span> == <span class="hljs-string">'foo'</span> <span class="hljs-comment">// false</span><br><br><span class="hljs-built_in">Number</span>(<span class="hljs-string">'foo'</span>) <span class="hljs-comment">// NaN</span><br><br><span class="hljs-number">42</span> &gt; <span class="hljs-literal">NaN</span> <span class="hljs-comment">// false</span><br><span class="hljs-number">42</span> &lt; <span class="hljs-literal">NaN</span> <span class="hljs-comment">// false</span><br><span class="hljs-number">42</span> == <span class="hljs-literal">NaN</span> <span class="hljs-comment">// false</span><br></code></pre></td></tr></table></figure>
+<h2 id="變數"><a class="header-anchor" href="#變數"></a>變數</h2>
+<p>a-z, A-Z, $或_為開頭</p>
+<h3 id="函式範疇"><a class="header-anchor" href="#函式範疇"></a>函式範疇</h3>
+<h4 id="拉升"><a class="header-anchor" href="#拉升"></a>拉升</h4>
+<p>每當一個範疇內有一個var宣告出現，那個宣告就會屬於整個範疇，可從該範疇的任何位置取用他<br>
+這種行為被比喻為所謂的拉升（hoisting）動作</p>
+<h4 id="巢狀範疇"><a class="header-anchor" href="#巢狀範疇"></a>巢狀範疇</h4>
+<p>當你宣告一個變數，他在該範疇中的任何位置都可取用，而較低層或叫內層的範疇也能夠取用他</p>
+<h2 id="條件式"><a class="header-anchor" href="#條件式"></a>條件式</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">if</span> (a == <span class="hljs-number">42</span>) &#123;<br>  <span class="hljs-comment">// do somethings</span><br>&#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (a == <span class="hljs-number">41</span>) &#123;<br>  <span class="hljs-comment">// do somethings</span><br>&#125; <span class="hljs-keyword">else</span> &#123;<br>  <span class="hljs-comment">// do somethings</span><br>&#125;<br><br><span class="hljs-keyword">switch</span> (a) &#123;<br>  <span class="hljs-keyword">case</span> <span class="hljs-number">42</span>:<br>    <span class="hljs-comment">// do somethings</span><br>    <span class="hljs-keyword">break</span>;<br><br>  <span class="hljs-keyword">default</span>:<br>    <span class="hljs-comment">// do somethings</span><br>    <span class="hljs-keyword">break</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="Strict模式"><a class="header-anchor" href="#Strict模式"></a>Strict模式</h2>
+<p>ES5為該語言引進了一種「嚴格模式（strict mode）」，他會以更嚴謹的方法來規範某些行為。<br>
+<b class="color-success">讓程式碼遵循一組較為安全且適當的指導原則，程式碼更容易被引擎最佳化</b></p>
+<p>嚴格模式，不允許省略var宣告而隱含且自動建立全域變數的情形發生</p>
+<h2 id="作為值的函式"><a class="header-anchor" href="#作為值的函式"></a>作為值的函式</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-comment">// ..</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<p>foo基本上就是位於外層包圍範疇中的一個變數，他被賦予了所宣告的function的一個參考<br>
+因此這個function本身是一個值，就是42或[1, 2]那樣<br>
+可以將一個值傳給一個函式，也能將函式指定給變數，或傳入或回傳自其他函式的值</p>
+<h3 id="即刻調用的函式運算式（IIFE）"><a class="header-anchor" href="#即刻調用的函式運算式（IIFE）"></a>即刻調用的函式運算式（IIFE）</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js">(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">IIFE</span>(<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'hello'</span>)<br>&#125;)()<br><span class="hljs-comment">// hello</span><br></code></pre></td></tr></table></figure>
+<h3 id="Closure-閉包"><a class="header-anchor" href="#Closure-閉包"></a>Closure 閉包</h3>
+<p>在函式執行完畢之後，讓你記住並持續存取一個函式範疇（其變數）的一種方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">makeAdder</span>(<span class="hljs-params">x</span>) </span>&#123;<br>  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span>(<span class="hljs-params">y</span>) </span>&#123;<br>    <span class="hljs-keyword">return</span> y + x<br>  &#125;<br>  <span class="hljs-keyword">return</span> add<br>&#125;<br><br><span class="hljs-keyword">var</span> plusOne = makeAdder(<span class="hljs-number">1</span>)<br><span class="hljs-keyword">var</span> plusTen = makeAdder(<span class="hljs-number">10</span>)<br><br>plusOne(<span class="hljs-number">3</span>) <span class="hljs-comment">// 4</span><br>plusTen(<span class="hljs-number">5</span>) <span class="hljs-comment">// 15</span><br></code></pre></td></tr></table></figure>
+<h3 id="模組"><a class="header-anchor" href="#模組"></a>模組</h3>
+<p>js中closures最常見的用法式所謂的模組模式（module pattern）<br>
+模組能讓擬定意思有的實作細節（變數、函式），將他們隱藏起來，不讓外部世界看到，並提供一個可從外部取用的公開API</p>
+<h2 id="this識別字"><a class="header-anchor" href="#this識別字"></a>this識別字</h2>
+<p>this的指向取決於函式被呼叫的方式<br>
+this關鍵字彙依據函式的執行方式動態地被繫結（bound）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.bar)<br>&#125;<br><br><span class="hljs-keyword">var</span> bar = <span class="hljs-string">'global'</span><br><br><span class="hljs-keyword">var</span> obj1 = &#123;<br>  bar: <span class="hljs-string">'obj1'</span>,<br>  foo: foo,<br>&#125;<br><br><span class="hljs-keyword">var</span> obj2 = &#123;<br>  bar: <span class="hljs-string">'obj2'</span><br>&#125;<br><br>foo() <span class="hljs-comment">// global</span><br>obj1.foo() <span class="hljs-comment">// obj1</span><br>foo.call(obj2) <span class="hljs-comment">// obj2</span><br><span class="hljs-keyword">new</span> foo() <span class="hljs-comment">// undefined</span><br></code></pre></td></tr></table></figure>
+<p>非嚴格模式，foo()最後會將this設定為全域物件，而在嚴格模式中，this會是undefined，因此你會在存取bar特性時得到錯誤<br>
+obj1.foo()將this設為了obj1物件<br>
+foo.call(obj2)將this設為了obj2物件<br>
+new foo()將this設為了一個全新的空物件</p>
+<h2 id="原型"><a class="header-anchor" href="#原型"></a>原型</h2>
+<p>當你參考一個物件上的某個特性（property），如果該特性並不存在，Javascript就會自動使用該物件內部的原型參考（prototype reference）在另外的物件上尋找那個特性，</p>
+<p>最簡單的原型參考範例</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> foo = &#123;<br>  a: <span class="hljs-number">42</span><br>&#125;<br><br><span class="hljs-keyword">var</span> bar = <span class="hljs-built_in">Object</span>.create(foo)<br><br>bar.b = <span class="hljs-string">'hello'</span><br><br>bar.b <span class="hljs-comment">// "hello"</span><br>bar.a <span class="hljs-comment">// 42</span><br></code></pre></td></tr></table></figure>
+<h2 id="舊功能與新特色"><a class="header-anchor" href="#舊功能與新特色"></a>舊功能與新特色</h2>
+<h3 id="Polyfilling"><a class="header-anchor" href="#Polyfilling"></a>Polyfilling</h3>
+<p>依據一個較新功能的定義，產生具有相同行為，但能在舊的JS環境中執行的程式碼</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">if</span> (!<span class="hljs-built_in">Number</span>.isNaN) &#123;<br>  <span class="hljs-built_in">Number</span>.isNaN = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isNaN</span>(<span class="hljs-params">x</span>) </span>&#123;<br>    <span class="hljs-keyword">return</span> x !== x<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>能夠信任的polyfill</p>
+<ul>
+<li><a href="https://github.com/es-shims/es5-shim" target="_blank" rel="noopener">ES5-shim</a></li>
+<li><a href="https://github.com/es-shims/es6-shim" target="_blank" rel="noopener">ES6-shim</a></li>
+</ul>
+<h3 id="Transpiling"><a class="header-anchor" href="#Transpiling"></a>Transpiling</h3>
+<p>用新語法來撰寫，部屬到瀏覽器是經過transpile的程式碼</p>
+<p>優點</p>
+<ul>
+<li>易讀、易維護</li>
+<li>瀏覽器對新語法的最佳化</li>
+</ul>
+<p>預設參數</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params">a = <span class="hljs-number">2</span></span>) </span>&#123;<br>  <span class="hljs-built_in">console</span>.log(a)<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-keyword">var</span> a = <span class="hljs-built_in">arguments</span>[<span class="hljs-number">0</span>] !== (<span class="hljs-keyword">void</span> <span class="hljs-number">0</span>) ? <span class="hljs-built_in">arguments</span>[<span class="hljs-number">0</span>] : <span class="hljs-number">2</span>;<br>  <span class="hljs-built_in">console</span>.log(a)<br>&#125;<br><br><span class="hljs-keyword">void</span> <span class="hljs-number">0</span> <span class="hljs-comment">// undefined</span><br></code></pre></td></tr></table></figure>
+<p>轉換語法的工具<br>
+<a href="https://github.com/babel/babel" target="_blank" rel="noopener">babel</a></p>
+<h2 id="非Javascript的部分"><a class="header-anchor" href="#非Javascript的部分"></a>非Javascript的部分</h2>
+<p>不是JavaScript的JavaScript是DOM API</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> el = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'foo'</span>)<br></code></pre></td></tr></table></figure>
+<p>在瀏覽器中執行，會有document這個全域變數，不是由js引擎所提供，也沒有特別受到js語言規格的管制，被稱為host物件<br>
+alert是由瀏覽器提供給你的js程式，不是由js引擎本身所提供的<br>
+console.log也是相同的，你的瀏覽器提供這機制，將他們掛接到開發人員工具</p>
+<hr>
+<p>參考閱讀</p>
+<ul>
+<li><a href="https://cythilya.github.io/2018/11/02/program-performance/" target="_blank" rel="noopener">你懂 JavaScript 嗎？#26 程式效能（Program Performance）</a></li>
+<li><a href="https://www.ecma-international.org/publications/standards/Standard.htm" target="_blank" rel="noopener">Ecma Standards</a></li>
+<li><a href="https://sites.google.com/site/jigaizigongdaolun/ji-suan-ji-zu-zhi/5-6liangzhongbutongdejiagou" target="_blank" rel="noopener">計算機組織架構</a></li>
+<li><a href="https://github.com/getify/You-Dont-Know-JS" target="_blank" rel="noopener">You Dont Know JS</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    掃描QRcode，Donate一下
+  </button>
+  <div id="qr" style="display: none;">
+      <div style="display: inline-block;">
+        <img src="/images/qrcode/linePay.png" alt="Jeeying Line Pay">
+        <p>Line Pay</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/qrcode/paypal.png" alt="Jeeying PayPal">
+        <p>PayPal</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/qrcode/jkos.png" alt="Jeeying 街口支付">
+        <p>街口支付</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>作者： </strong>Jeeying
+  </li>
+  <li class="post-copyright-link">
+    <strong>文章連結：</strong>
+    <a href="http://jeeying.github.io/Javascript/javascript/YDKJS-1/" title="YDKJS - 1_概述">http://jeeying.github.io/Javascript/javascript/YDKJS-1/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版權聲明： </strong>本網誌所有文章除特別聲明外，均採用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 許可協議。轉載請註明出處！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Javascript/" rel="tag"><i class="fa fa-tag"></i> Javascript</a>
+              <a href="/tags/YDKJS/" rel="tag"><i class="fa fa-tag"></i> YDKJS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/uncategorized/Test/" rel="prev" title="測試網頁">
+      <i class="fa fa-chevron-left"></i> 測試網頁
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/Javascript/javascript/YDKJS-2/" rel="next" title="YDKJS - 2_型別">
+      YDKJS - 2_型別 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#輸出"><span class="nav-number">1.1.</span> <span class="nav-text">輸出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#輸入"><span class="nav-number">1.2.</span> <span class="nav-text">輸入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#名詞"><span class="nav-number">1.3.</span> <span class="nav-text">名詞</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript入門"><span class="nav-number">2.</span> <span class="nav-text">JavaScript入門</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#值與型別"><span class="nav-number">2.1.</span> <span class="nav-text">值與型別</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#物件"><span class="nav-number">2.1.1.</span> <span class="nav-text">物件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#陣列"><span class="nav-number">2.1.2.</span> <span class="nav-text">陣列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函式"><span class="nav-number">2.1.3.</span> <span class="nav-text">函式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#內建方法"><span class="nav-number">2.1.4.</span> <span class="nav-text">內建方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#比較值"><span class="nav-number">2.1.5.</span> <span class="nav-text">比較值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#強制轉型（Coercion）"><span class="nav-number">2.1.6.</span> <span class="nav-text">強制轉型（Coercion）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Truthy-Falsy"><span class="nav-number">2.1.7.</span> <span class="nav-text">Truthy &amp; Falsy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相等性"><span class="nav-number">2.1.8.</span> <span class="nav-text">相等性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#變數"><span class="nav-number">2.2.</span> <span class="nav-text">變數</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函式範疇"><span class="nav-number">2.2.1.</span> <span class="nav-text">函式範疇</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#拉升"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">拉升</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#巢狀範疇"><span class="nav-number">2.2.1.2.</span> <span class="nav-text">巢狀範疇</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#條件式"><span class="nav-number">2.3.</span> <span class="nav-text">條件式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Strict模式"><span class="nav-number">2.4.</span> <span class="nav-text">Strict模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作為值的函式"><span class="nav-number">2.5.</span> <span class="nav-text">作為值的函式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#即刻調用的函式運算式（IIFE）"><span class="nav-number">2.5.1.</span> <span class="nav-text">即刻調用的函式運算式（IIFE）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Closure-閉包"><span class="nav-number">2.5.2.</span> <span class="nav-text">Closure 閉包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模組"><span class="nav-number">2.5.3.</span> <span class="nav-text">模組</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#this識別字"><span class="nav-number">2.6.</span> <span class="nav-text">this識別字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原型"><span class="nav-number">2.7.</span> <span class="nav-text">原型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#舊功能與新特色"><span class="nav-number">2.8.</span> <span class="nav-text">舊功能與新特色</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Polyfilling"><span class="nav-number">2.8.1.</span> <span class="nav-text">Polyfilling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Transpiling"><span class="nav-number">2.8.2.</span> <span class="nav-text">Transpiling</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#非Javascript的部分"><span class="nav-number">2.9.</span> <span class="nav-text">非Javascript的部分</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Jeeying</p>
+  <div class="site-description" itemprop="description">記錄學習內容</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Jeeying" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Jeeying" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:qwer558a1@gmail.com" title="E-Mail → mailto:qwer558a1@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/qwer558a2/" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;qwer558a2&#x2F;" rel="noopener" target="_blank"><i class="fab fa-facebook fa-fw"></i></a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fas fa-lightbulb"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jeeying</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://jeeyings-blog.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://jeeying.github.io/Javascript/javascript/YDKJS-1/";
+    this.page.identifier = "Javascript/javascript/YDKJS-1/";
+    this.page.title = "YDKJS - 1_概述";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://jeeyings-blog.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

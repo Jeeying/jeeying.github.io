@@ -1508,7 +1508,7 @@ pre code {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #3437a7;
+  background: #6c9e3c;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1595,14 +1595,14 @@ pre code {
   margin-left: 10px;
 }
 .sidebar-nav li:hover {
-  color: #0dad38;
+  color: #26a69a;
 }
 .sidebar-nav .sidebar-nav-active {
-  border-bottom-color: #0dad38;
-  color: #0dad38;
+  border-bottom-color: #26a69a;
+  color: #26a69a;
 }
 .sidebar-nav .sidebar-nav-active:hover {
-  color: #0dad38;
+  color: #26a69a;
 }
 .sidebar-panel {
   display: none;
@@ -1631,7 +1631,7 @@ pre code {
   }
 }
 .sidebar-toggle:hover .toggle-line {
-  background: #0dad38;
+  background: #26a69a;
 }
 .post-toc {
   font-size: 0.875em;
@@ -1670,14 +1670,14 @@ pre code {
   display: block;
 }
 .post-toc .nav .active > a {
-  border-bottom-color: #0dad38;
-  color: #0dad38;
+  border-bottom-color: #26a69a;
+  color: #26a69a;
 }
 .post-toc .nav .active-current > a {
-  color: #0dad38;
+  color: #26a69a;
 }
 .post-toc .nav .active-current > a:hover {
-  color: #0dad38;
+  color: #26a69a;
 }
 .site-state {
   display: flex;
@@ -1833,6 +1833,16 @@ pre code {
 }
 .back-to-top.back-to-top-on:hover {
   opacity: 0.8;
+}
+.reading-progress-bar {
+  background: #009688;
+  display: block;
+  height: 3px;
+  left: 0;
+  position: fixed;
+  width: 0;
+  z-index: 1500;
+  top: 0;
 }
 .post-body {
   font-family: 'Noto Sans TC', "PingFang SC", "Microsoft YaHei", sans-serif;
@@ -2256,9 +2266,9 @@ pre code {
 }
 .reward-container button {
   background: transparent;
-  border: 2px solid #0dad38;
+  border: 2px solid #26a69a;
   border-radius: 2px;
-  color: #0dad38;
+  color: #26a69a;
   cursor: pointer;
   line-height: 2;
   outline: 0;
@@ -2269,7 +2279,7 @@ pre code {
   transition-timing-function: ease-in-out;
 }
 .reward-container button:hover {
-  background: #0dad38;
+  background: #26a69a;
   border: 2px solid transparent;
   color: #fff;
 }
@@ -2742,14 +2752,14 @@ ul.breadcrumb li + li:last-child {
 .sub-menu .menu-item a:hover,
 .sub-menu .menu-item span.exturl:hover {
   background: transparent;
-  color: #0dad38;
+  color: #26a69a;
 }
 .sub-menu .menu-item-active a {
-  border-bottom-color: #0dad38;
-  color: #0dad38;
+  border-bottom-color: #26a69a;
+  color: #26a69a;
 }
 .sub-menu .menu-item-active a:hover {
-  border-bottom-color: #0dad38;
+  border-bottom-color: #26a69a;
 }
 .sidebar {
   background: var(--body-bg-color);
@@ -2983,15 +2993,15 @@ ul.breadcrumb li + li:last-child {
     margin: 8px 0 0;
   }
 }
-.highlight td.code {
-  position: relative;
-  color: $rrr;
+.hljs {
+  padding: 0;
+  line-height: 1.875em;
 }
-mark {
+.hljs mark {
   background-color: transparent;
   color: inherit;
 }
-mark:after {
+.hljs mark:after {
   content: '';
   height: 1.5em;
   display: inline-block;
@@ -3002,15 +3012,55 @@ mark:after {
   background-color: rgba(0,0,0,0.1);
 }
 @media (min-width: 1200px) {
-  mark:after {
+  .hljs mark:after {
     height: 1.6em;
   }
 }
 @media (prefers-color-scheme: dark) {
-  mark:after {
+  .hljs mark:after {
     background-color: rgba(255,255,255,0.1);
   }
 }
 .post-copyright {
-  border-left: 3px solid #0dad38;
+  border-left: 3px solid #26a69a;
+}
+.tab {
+  display: inline-block;
+  margin-left: 1em;
+}
+.color-alert {
+  color: #e57373;
+}
+.color-warning {
+  color: #fff176;
+}
+.color-info {
+  color: #4fc3f7;
+}
+.color-success {
+  color: #4db6ac;
+}
+.sub-title {
+  margin-top: 1em;
+  display: inline-block;
+  color: #9e9e9e;
+}
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code,
+li code,
+span code,
+p code {
+  background: transparent;
+  border-radius: 0px;
+  color: inherit;
+  font-family: 'Noto Sans TC', "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+mark {
+  background: #009688;
+  border-radius: 3px;
+  padding: 2px 4px;
 }
