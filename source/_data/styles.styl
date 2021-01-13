@@ -1,26 +1,72 @@
-.highlight
-  td.code
-    position relative
-    color $rrr
-
-mark
-  background-color transparent
-  color inherit
-  &:after
-    content ''
-    height 1.5em
-    display inline-block
-    width calc(100% - 30px)
-    /* transform translateX(-10px); */
-    left 30px
-    position fixed
-    background-color rgba(0,0,0,.1)
-    +desktop-large() {
-      height 1.6em
-    }
-    @media (prefers-color-scheme: dark)
-      background-color rgba(255,255,255,.1)
+// .highlight
+//   table
+//     tr
+//       display flex
+//   .code
+//     pre
+//   td.code
+//     position relative
+//     color $rrr
+.hljs
+  padding 0
+  line-height 1.875em
+  mark
+    background-color transparent
+    color inherit
+    &:after
+      content ''
+      height 1.5em
+      display inline-block
+      width calc(100% - 30px)
+      /* transform translateX(-10px); */
+      left 30px
+      position fixed
+      background-color rgba(0,0,0,.1)
+      +desktop-large() {
+        height 1.6em
+      }
+      @media (prefers-color-scheme: dark)
+        background-color rgba(255,255,255,.1)
 
 
 .post-copyright
-  border-left: 3px solid #0dad38;
+  border-left: 3px solid $sidebar-highlight;
+
+.tab
+  display inline-block
+  margin-left 1em
+
+.color
+  &-alert
+    color $color-alert
+  &-warning
+    color $color-warning
+  &-info
+    color $color-info
+  &-success
+    color $color-success
+
+.sub-title
+  margin-top: 1em;
+  display: inline-block;
+  color: $color-title;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+span,
+p
+  code
+    background: transparent;
+    border-radius: 0px;
+    color: inherit;
+    font-family 'Noto Sans TC', "PingFang SC", "Microsoft YaHei", sans-serif
+
+mark
+  background #009688
+  border-radius 3px
+  padding 2px 4px

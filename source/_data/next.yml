@@ -371,10 +371,10 @@ back2top:
 
 # Reading progress bar
 reading_progress:
-  enable: false
+  enable: true
   # Available values: top | bottom
   position: top
-  color: "#37c6c0"
+  color: "#009688"
   height: 3px
 
 # Bookmark Support
@@ -580,8 +580,8 @@ comments:
 
 # Disqus
 disqus:
-  enable: false
-  shortname:
+  enable: true
+  shortname: jeeyings-blog
   count: true
   #post_meta_order: 0
 
