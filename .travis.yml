@@ -17,4 +17,5 @@ deploy:
     branch: master
   local-dir: public
 install:
+  - nvm install 14
   - yarn
