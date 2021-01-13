@@ -399,3 +399,4 @@ console.log也是相同的，你的瀏覽器提供這機制，將他們掛接到
 - [你懂 JavaScript 嗎？#26 程式效能（Program Performance）](https://cythilya.github.io/2018/11/02/program-performance/)
 - [Ecma Standards](https://www.ecma-international.org/publications/standards/Standard.htm)
 - [計算機組織架構](https://sites.google.com/site/jigaizigongdaolun/ji-suan-ji-zu-zhi/5-6liangzhongbutongdejiagou)
+- [You Dont Know JS](https://github.com/getify/You-Dont-Know-JS)
