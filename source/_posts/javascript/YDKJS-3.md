@@ -398,9 +398,6 @@ typeof NaN // "number"
 
 NaN唯一一個非反身（not reflexive）值
 
-```vbscript
-' hidden code
-```
 {% codeblock lang:js mark:3 %}
 NaN == NaN  // false
 NaN === NaN // false
@@ -570,6 +567,9 @@ foo(a)
 a // [1, 2, 3, 4]
 ```
 
+```vbscript
+' hidden code
+```
 {% codeblock lang:js mark:5 讓傳進來的array被賦予新的內容 %}
 function foo(x) {
   x.push(4)
