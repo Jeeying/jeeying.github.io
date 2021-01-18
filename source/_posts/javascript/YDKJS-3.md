@@ -515,6 +515,118 @@ if (!Object.is) {
 
 # 值 vs 參考
 
+值可藉由值的拷貝（value-copy）或參考的拷貝（reference-copy）來指定或傳遞
+無法從某個js變數指向另一個變數的一個參考
+<b class="color-success">js的參考指向一個（共有）值</b>，<b>所以如果你有不同的參考，他們一定都是指向單一個共有值（shared value）的個別參考，他們不會是指向彼此的參考或指標</b>
+
+<b class="color-alert">值的型別完全控制了該值是藉由值的拷貝（by value-copy）或是藉由參考的拷貝（by reference-copy）</b>
+
+```js
+a = 2
+b = a // b一定是a中的值的一份拷貝
+
+b += 1
+b // 3
+a // 2
+
+c = [1, 2, 3]
+d = c // d是指向共有值[1, 2, 3]的一個參考
+// c跟d都是對一個共有值[1, 2, 3]的個別參考，任一對參考來修改，兩個參考都會參考到新的值
+
+d.push(4)
+d // [1, 2, 3, 4]
+c // [1, 2, 3, 4]
+```
+
+<b class="color-success">簡單的值（即純量的基型值，scalar primitives）永遠都是藉由<span class="color-alert">值的拷貝（value-copy）</span>來指定或傳遞的</b>，如null, undefined, string, number, boolean以及symbol
+
+<b class="color-success">複合值object（包括array以及所有封裝用的物件包裹器，boxed object wrappers）和function，永遠都會在指定或傳遞時，建立<span class="color-alert">參考的拷貝（reference-copy）</span></b>
+
+<b class="color-warning">參考指向的是值本身，而非變數</b>，無法使用一個參考來變更另一個參考所指向的東西
+
+```js
+a = [1, 2, 3]
+b = a
+
+b = [4, 5, 6]
+
+b // [4, 5, 6]
+a // [1, 2, 3]
+```
+
+```js
+function foo(x) {
+  x.push(4)
+  console.log(x) // [1, 2, 3, 4]
+
+  x = [4, 5, 6]
+  x.push(7)
+  console.log(x) // [4, 5, 6, 7]
+}
+
+a = [1, 2, 3]
+foo(a)
+
+a // [1, 2, 3, 4]
+```
+
+{% codeblock lang:js mark:5 讓傳進來的array被賦予新的內容 %}
+function foo(x) {
+  x.push(4)
+  console.log(x) // [1, 2, 3, 4]
+
+  x.length = 0
+  console.log(x) // []
+
+  x.push(4, 5, 6, 7)
+  console.log(x) // [4, 5, 6, 7]
+}
+
+a = [1, 2, 3]
+foo(a)
+
+a // [4, 5, 6, 7]
+{% endcodeblock %}
+
+<b class="color-info">無法直接控制或覆寫值拷貝或參考的行為，那些語意完全是由底層的值之型別來控制的</b>
+
+想讓純量的基型值可被更新，包裹在object裡
+
+```js
+function foo(wrapper) {
+  wrapper.a = 42
+}
+
+obj = {
+  a: 2
+}
+
+foo(obj)
+
+obj // { a: 42 }
+```
+
+如果是封裝在Number的物件包裹器，值不會被改變
+因為底層的純量基型值是不可變的（string和boolean也會有相同結果）
+
+```js
+function foo(x) {
+  x += 1
+  console.log(x) // 3
+}
+
+a = 2
+b = new Number(a)
+
+foo(b)
+b // Number {2}
+a // 2
+```
+
+如果一個Number物件持有純量基型值2會被解封（unboxed），自動從那個Number物件中被擷取（extracted）出來，所以x += 1會以非常細微的方式，將x從指向那個Number物件的一個共有參考，改為單純持有純量基型值3
+
+可以在Number物件上新增特性，只是不能修改他內部的基型值，所以能藉由那些額外的特性間接的交換資訊
+
 # 參考文章
 
 [從 IEEE 754 標準來看為什麼浮點誤差是無法避免的](https://medium.com/starbugs/see-why-floating-point-error-can-not-be-avoided-from-ieee-754-809720b32175)
