@@ -42,9 +42,9 @@ console.log(a);
 弱型別 weak typing
 動態型別 dynamic typing
 範疇 scope
-<span class="tab">一群變數以及這些變數如何透過名稱來存取的規則所成的一個集合，只有在函式內的程式碼能夠存取該函式範疇內的變數</span>
+　一群變數以及這些變數如何透過名稱來存取的規則所成的一個集合，只有在函式內的程式碼能夠存取該函式範疇內的變數
 語彙範疇 lexical scope
-<span class="tab">一個範疇中的程式碼能夠存取該範疇以及其外層任何範疇內的變數</span>
+　一個範疇中的程式碼能夠存取該範疇以及其外層任何範疇內的變數
 控制反轉 Inversion of Control, IoC
 線性推理能力 linear reason-ability
 [Web Workers](https://developer.mozilla.org/zh-TW/docs/Web/API/Web_Workers_API/Using_web_workers)

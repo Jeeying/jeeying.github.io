@@ -57,12 +57,14 @@ asdf
 
 
 
+上標
 29^th^ => 29<sup>th</sup>
 
 
 
 
 
+下標
 H~2~0 => H<sub>2</sub>O
 
 

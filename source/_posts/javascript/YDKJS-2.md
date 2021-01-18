@@ -87,15 +87,15 @@ typeof是在詢問在該變數中的那個值是什麼型別
 
 目前沒有值的變數實際上擁有undefined這個值
 一個undefined變數
-<span class="tab">是已經在可取用的範疇（assessible scope）中被宣告了變數，只不過當下沒有其他的值<span>
+　是已經在可取用的範疇（assessible scope）中被宣告了變數，只不過當下沒有其他的值
 
 一個undeclared變數
-<span class="tab">尚未在可取用的範疇中，正式被宣告的變數<span>
+　尚未在可取用的範疇中，正式被宣告的變數
 
 ![undefined vs undeclared](/images/javascript/YDKJS-2/1.png "undefined vs undeclared")
 
 <b class="sub-title">一級函式（First-class Function）</b>
-<span class="tab">當函式在那個語言中可以被視為跟其他的變數一樣時，我們稱那樣的程式語言擁有一級函式。</span>
+　當函式在那個語言中可以被視為跟其他的變數一樣時，我們稱那樣的程式語言擁有一級函式。
 
 <b class="sub-title">為何typoef Undeclared 是 "undefined"</b>
 用來檢查變數是否存在，如若是尚未宣告，會有ReferenceError擲出
